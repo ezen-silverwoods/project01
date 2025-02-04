@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="./ex01.js"></script>
+		<!-- Jquery는 JS의 라이브러리입니다 -->
+		<!-- 이미 작성되어있는 라이브러리 파일을 가져와야 합니다 -->
+		<script src="./js/jquery-3.7.1.js"></script>
+		<!-- src 속성에 url -->
+	</head>
+	<body>
+		<input type="text" id="userName" value="홍길동">
+		<hr>
+		<div class="msg_box_JS">js</div>
+		<div class="msg_box_JQ">jq</div>
+		<div class="msg_box_JSN">jsn</div>
+		
+		<script>
+			console.log(str);
+			/* 자바스크립트 ID로 객체 찾기 */
+			let obj_JS = document.getElementById('userName');
+			console.log(obj_JS);
+			
+			/* Jquery에서 객체 찾기 */
+			let obj_JQ = $("#userName");
+			console.log(obj_JQ);
+			
+			/* JS 쿼리 함수 */
+			let obj_JSN = document.querySelector("#userName");
+			console.log(obj_JSN);
+			
+			// 객체에서 속성값 호출
+			console.log(obj_JS.value);
+			// jquery객체에서 value를 가져오는 함수 .val()
+			console.log(obj_JQ.val());
+			console.log(obj_JSN.value);
+			
+			// 객체 찾기
+			// 찾은 HTML컬렉션에서 index가 0인 객체를 할당
+			let msg_JS = document.getElementsByClassName("msg_box_JS")[0];
+			let msg_JQ = $(".msg_box_JQ");
+			let msg_JSN = document.querySelector(".msg_box_JSN");
+			
+			console.log(msg_JS);
+			console.log(msg_JQ);
+			console.log(msg_JSN);
+			
+			// 객체의 innerText
+			console.log(msg_JS.innerText);
+			console.log(msg_JQ.text());
+			console.log(msg_JSN.innerText);
+			
+			msg_JS.innerText = '새로운 문자열'
+			msg_JQ.text('인자로 문자열을 입력')
+			msg_JSN.innerText = 'innerText의 값을 바꿨습니다'
+			
+			// 객체의 innerHTML
+			console.log(msg_JS.innerHTML);
+			console.log(msg_JQ.html());
+			console.log(msg_JSN.innerHTML);
+			
+			msg_JS.innerHTML = '<span style="color:red;">문자열</span>';
+			msg_JQ.html('<span style="color:blue;">문자열</span>')
+			msg_JSN.innerHTML = '<span style="color:green;">문자열</span>';
+			
+			/*	Jquery로 찾은 객체의 속성을 가져올때는, 함수를 이용합니다
+				속성 값을 바꿀때도 함수를 이용합니다
+				input의 value속성 값 가져오기	: 객체.val()
+				input의 value속성 값 바꾸기	: 객체.val('바꿀값')
+				innerText 값 가져오기		: 객체.text() 
+				innerText 값 바꾸기		: 객체.text('바꿀값')
+				innerHTML 값 가져오기		: 객체.html()
+				innerHTML 값 바꾸기		: 객체.html('바꿀값')
+			*/ 
+		</script>
+	</body>
+</html>

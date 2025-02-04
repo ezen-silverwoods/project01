@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//p태그 전부 가져오는 코드
+	let p = document.getElementsByTagName("p");
+	console.log(p)
+	
+	//자바스크립트에서 html문서가 전부 로딩된 후 실행되는 함수
+	//브라우저에 표출된 화면은 window라고한다.
+	//코드에서 바라보는 html은 document라고한다.
+	//브라우저에 html코드가 전부 로딩되어 화면에 표출된 후 실행
+	window.onload = function(){
+		//html에 존재하는 모든 div 태그를 가져오는 코드
+		let div = document.getElementsByTagName("div")
+		console.log(div)
+		let hong = document.getElementById("hong")
+		console.log(hong)
+	}
+	
+</script>
+</head>
+<body>
+	<p id="hong">aaaaaa</p>
+	<p>1234</p>
+	<div id="hong">bbbbbb</div>
+	<div>qwerty</div>
+</body>
+</html>

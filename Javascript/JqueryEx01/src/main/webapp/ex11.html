@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>이벤트 전파</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+		<style>
+			.parent{
+				width : 200px;
+				height : 200px;
+				background-color : yellow;
+				display : flex;
+				align-items : center;
+				justify-content : center;
+			}
+			.child{
+				width : 100px;
+				height : 100px;
+				background-color : white;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$('div')
+					.mouseover(function(){
+					//	setMsg(this,'over');
+					})
+					.mouseout(function(){
+					//	setMsg(this,'out');
+					})
+					.mouseleave(function(){
+						setMsg(this,'leave');
+					})
+					.mouseenter(function(){
+						setMsg(this,'enter');
+					});
+			});
+			
+			function setMsg(obj,str){
+				let text = $(obj).attr('class') + str
+				$('.msg_box').text(text);
+				console.log(text);
+			}
+		</script>
+	</head>
+	<body>
+		<div class="parent">
+			<div class="child">
+				<span class="msg_box"></span>
+			</div>
+		</div>
+	</body>
+</html>

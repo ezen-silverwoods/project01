@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>자바스크립트의 비동기 동작</title>
+		<script>
+			function getTime(){
+				now = new Date();
+				//console.log(now);
+				console.log(now.getMinutes()+" : "+
+				now.getSeconds() + " : " + 
+				now.getMilliseconds());
+			}
+			
+			//getTime();
+			let x = 1;
+			function A(){
+				getTime();
+				setTimeout(function(){
+					getTime();
+					console.log('3초간 기다립니다');
+					console.log(x);
+					x = 10;
+					console.log(x);
+				},3000);
+				console.log('함수 A가 호출되었습니다');
+				console.log(x);
+				getTime();
+			}
+			function B(){
+				console.log('함수 B가 호출되었습니다');
+				console.log(x);
+				getTime();
+			}
+			function C(){
+				console.log('함수 C가 호출되었습니다');
+				console.log(x);
+				getTime();
+			}
+			
+			// 비동기 통신을 하는 함수 A() 가정
+			A();
+			// 함수 B에서는 함수 A가 가져온 데이터로 화면에 출력
+			B();
+			C();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+	//객체
+	//여러개의 데이터를 하나의 변수에 키:밸류 구조를 이용해서 가지는 타입
+	let obj = {
+		//a키에 10값
+		a : 10,
+		b : "hello",
+		c : true,
+		d : []
+	}
+	console.log(obj)
+	
+	//객체에서 데이터를 꺼낼 때 객체에 저장된 키를 이용해 가져올 수 있다.
+	//obj변수가 가지고있는 a키에 해당하는 값을 꺼내온다.
+	console.log(obj.a)
+	console.log(obj.b)
+	console.log(obj.c)
+	console.log(obj.d)
+	
+	let obj2 = {};
+	
+	//obj2 객체에 a키가 존재하지 않는다면 a키와, hello 값을 객체에 추가한다.
+	obj2.a = "hello";
+	console.log(obj2)
+	
+	//obj2 객체에 a키가 존재한다면 a키에 해당하는 값을 bye로 대입해서 바꾼다.
+	obj2.a = "bye";
+	console.log(obj2.a)
+	//객체에 저장된 값을 가져오는 두번째 방법
+	console.log(obj2["a"])
+	
+	function add(x, y){
+		return x + y;
+	}
+	
+	//객체에 함수 선언
+	let cal ={
+		add:function(x, y){
+			return x + y;
+		},
+		x : 10,
+		minus : function(x, y){
+			return x - y;
+		}
+	}
+	
+	let a = cal.add(50, 60);//-> x+ y -> 110
+	console.log(a)
+	
+</script>
+</html>

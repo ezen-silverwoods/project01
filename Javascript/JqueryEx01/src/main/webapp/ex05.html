@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>선택자</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+		<script>
+			// 문서가 준비되었을때에, 코드블럭을 실행해주세요
+			$(document).ready(function(){
+				// 전체 선택자
+				$("*").css('color','lime');
+				// tag name 선택자
+				$("h3").css('font-size','50px');
+				// class 선택자
+				$(".myClass").css('background-color','yellow');
+				// id 선택자
+				$("#myId").css('color','red');
+				// 가상선택자
+				// odd even : 홀수 짝수
+				$("li:odd()").css('color','black');
+				$("li:even()").css('color','pink');
+				$("li:last").css('background-color','gray');
+				// 자손 선택자
+				$('ul .myClass').css('font-size','3rem');
+				// 복수의 객체를 선택
+				// 따옴표로 묶인 문자열 내부에 ,로 구분된 선택자를 여러개 입력합니다
+				$('.myClass, .yourClass').css('border','1px solid black');
+				// 속성 이름으로 객체 찾기
+				// 해당 속성이 있는 객체
+				$('[name]').text('객체를 찾았습니다');
+				$('[type]').val('type 속성이 있습니다');
+				// 속성의 값을 지정하기
+				$('[type="reset"]').val("type 속성의 값이 reset인 객체");
+				// 태그 이름과 속성이름으로 찾기
+				$('div[id]').text("id속성이 있는 div");
+				// 태그이름과, 속성이름과, 속성 값으로 객체 찾기
+				$('input[type="text"]').val('input type text를 선택함')
+			});
+		</script>
+	</head>
+	<body>
+		<span class="myClass">span입니다</span>
+		<hr>
+		<span class="yourClass">span입니다</span>
+		<h3>h3입니다</h3>
+		<ul>
+			<li>1st</li>
+			<li id="myId">2nd</li>
+			<li>3rd</li>
+			<li>4th</li>
+		</ul>
+		<ul>
+			<li>5th</li>
+			<li>6th</li>
+			<li class="myClass">7th</li>
+			<li>8th</li>
+		</ul>
+		<input type="button" value="input btn"><br>
+		<button type="button">button</button><br>
+		<input type="reset" value="reset"><br>
+		<input type="text"><br>
+		<div name="div1">div 1</div>
+		<div id="div2">div 2</div>
+		<div>div 3</div>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로컬스토리지에 저장하기</title>
+    <script>
+        function save(){
+            const input_value = document.querySelector("#data");
+            console.log(input_value);
+            localStorage.setItem("data",input_value.value);
+        }
+        function load(){
+            const input_value = document.querySelector("#data");
+            input_value.value = localStorage.getItem("data");
+        }
+        window.onload = function(){
+            load();
+        }
+    </script>
+</head>
+<body>
+    <input type="text" name="data" id="data">
+    <button type="button" onclick="save();">저장하기</button>
+</body>
+</html>

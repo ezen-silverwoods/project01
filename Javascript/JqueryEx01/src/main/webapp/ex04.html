@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>form submit by jquery</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+		<script>
+			// 이 문서가 브라우저에서 로드가 완료되면 코드블럭의 코드를 실행하세요
+			$(document).ready(function(){
+				// id가 uid인 객체를 찾아서, 커서를 이동하세요
+				$("#uid").focus();
+			});
+			
+			let submitFlag = false;
+			// submit시 입력값의 유효성을 체크하는 함수 선언
+			function CheckValue() {
+				// submitFlag 가 true이면 함수를 종료 =================
+				if( submitFlag == true ) { return }
+				// ================================================
+					
+				if( $("#uid").val() == "" ){
+					$(".msg_box").text("아이디를 입력하세요");
+					// JQ객체의 css style변경함수
+					// $(선택자).css('속성이름','속성값');
+					$(".msg_box").css('color','red');
+					$("#uid").focus();
+					return false;
+				}
+				// -> 다음 input 객체의 value 속성값을 확인
+				if( $("#upw").val() == "" ){
+					$(".msg_box").text("비번을 입력하세요");
+					$(".msg_box").css('color',"red");
+					$("#upw").focus();
+					return false;
+				}
+				// form의 모든 input객체의 value 속성값이 입력되어있고, 형식에 맞으면
+				// -> submit 이벤트를 지속
+				if( confirm("로그인 하시겠습니까?") != true ){
+					alert("취소하셨습니다");
+					return false;
+				}else{
+					alert("진행합니다");
+					submitFlag = true;
+					// jquery에서 재정의한 submit() 메소드는
+					// js의 submit() 함수와 달리
+					// submit 이벤트를 발생
+					// -> onsubmit에 의해 CheckValue() 함수가 다시 호출됨
+					$("#loginForm").submit();
+					return true;
+				}
+				// return false;
+			}
+		</script>
+	</head>
+	<body>
+		<!-- form 영역에서 submit 이벤트가 발생되면
+			 loginOk.jsp에 get방식으로 uid와 upw에 입력된 값을 전송 -->
+		<form	action="loginOk.jsp"
+				method="get"
+				id="loginForm" name="loginForm"
+				onsubmit="return CheckValue();" >
+			<label>아이디 :
+				<input type="text" id="uid" name="uid">
+			</label><br>
+			<label>비번 :
+				<input type="password" id="upw" name="upw">
+			</label><br>
+			<span class="msg_box"></span><br>
+			<input type="button" value="버튼" onclick="CheckValue();">
+			<input type="submit" value="submit">
+		</form>
+	</body>
+</html>

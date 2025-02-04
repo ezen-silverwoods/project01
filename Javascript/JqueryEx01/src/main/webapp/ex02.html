@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+		
+	</head>
+<body>
+	<!--	객체의 부모 객체를 찾기
+			객체의 자식(자손) 객체를 찾기(검색)	-->
+	<script>
+		// 이벤트가 일어난 객체의 부모객체를 찾고, 부모의 하위 객체중 span 태그를 찾기
+		function setMsg(obj){
+			console.log("이벤트가 일어난 객체", obj);
+			
+			// JS스크립트에서 DOM객체의 부모객체 ===============================================
+			let parent = obj.parentNode;
+			console.log("이벤트가 일어난 객체의 부모", parent);
+			// 찾은 부모 노드의 하위 객체에서 span 태그 객체를 찾기
+			// (하위객체가 있는 DOM객체).get함수('이름')
+			let result = parent.getElementsByTagName("span");
+			console.log("부모 객체로부터 찾은 span", result);
+			// result는 찾은 객체가 없을때에도 원소 개수가 0인 HTMl컬렉션입니다
+			if( result.length > 0 ) {
+				// 찾은 객체가 있으면 컬렉션의 index가 0인 객체의 innerText를 변경
+				result[0].innerText = '클릭되었습니다';
+			}
+			// JS스크립트 =================================================================
+			
+			// Jquery를 이용한 방법 ========================================================
+			// Jquery에서는 Jquery객체에서 필요한 함수를 호출
+			// obj로 넘어온 DOM객체를 Jquery객체로 변환
+			// $(객체) -> Jquery 객체가 반환됩니다
+			console.log("Jquery 객체로 변환",$(obj));
+			// Jquery 객체의 부모 객체 -> JQ객체.parent()
+			let parent_node = $(obj).parent();
+			console.log("JQ객체의 부모객체", parent_node);
+			// JQ객체.find('선택자')
+			// $(선택자).find('선택자')
+			// parent_node.find('span')
+			result = parent_node.find('span');
+			console.log("찾은 하위 객체", result);
+			
+			// span에 배경색은 노랑, 글자색은 파랑으로 '클릭 확인' 표시 해 보세요
+			result.html('<p style="color: blue; background-color: yellow;">클릭 확인</p>')
+			// Jquery를 이용한 방법 ========================================================
+		}
+	</script>
+	<span>
+		<span>span1</span>
+		<input	 type='button'
+				 value='클릭해주세요'
+				 class='btn'
+				 onclick='setMsg(this);' >
+	</span>
+	<hr>
+	<span>
+		<span>span2</span>
+		<input type='button' value='클릭해주세요' class='btn' onclick='setMsg(this);' >
+	</span>
+	<hr>
+	<span>
+		<span>span3</span>
+		<input type='button' value='클릭해주세요' class='btn' onclick='setMsg(this);' >
+	</span>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ajax 연습</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+		<script>
+			function DoCall(){
+				//alert("함수가 호출되었습니다");
+				/*
+				$.ajax( js object );
+				js object { 키 : 값, 키 : 값, 키 : 값 }
+				
+				$.ajax({
+					url : '주소',			// 요청 대상
+					type : '방식',		// 통신 타입 : get, post
+					data : '데이터',		// 보내는 데이터
+					data : 'name=hong&age=30',
+					data : { name : 'hong' , age : 30 },
+					
+					datatype : '형식'	,	// 받는 데이터의 형식
+					'html', 'plain text', 'json', 'xml'
+					
+					success : 함수(){},	// 통신 성공시 실행할 함수
+					error : 함수(){},		// 통신 실패시 실행할 함수
+					complete : 함수(){}	// 통신 '종료'시 실행할 함수
+					// complete는 성공 실패 유무 관계없이 실행
+				});
+				*/
+				
+				$.ajax({
+					url : './data.txt',
+					type : 'get',
+					success : function(result){
+					//	alert(result);
+						if( result.trim() == 'data') {
+							alert(result);
+						}else{
+							alert('형식에 맞지 않습니다');
+						}
+					},
+					error : function(){
+						alert('통신이 실패했습니다');
+					},
+					complete : function(){
+						alert('통신이 종료되었습니다');
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<button type="button" onclick="DoCall();">
+			AJAX 요청하기
+		</button>
+	</body>
+</html>

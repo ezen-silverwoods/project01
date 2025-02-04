@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	.pclass {
+		background-color: red;
+	}
+	
+	.test{
+		background-color : green;
+	}
+</style>
+</head>
+<body>
+	<!-- 
+		html태그를 태그또는 요소라고 한다.
+		태그가 가지는 성질을 속성(attribute)라고 한다.
+		id속성의 값이 pid, class속성의 값이 pclass
+	 -->
+	<p id="pid" class="pclass" name="pname" style="color:blue;">
+		p태그
+	</p>
+	
+	<div id="pid">
+		div태그
+		<p>div 안에 p태그</p>
+	</div>
+</body>
+<script>
+	//1. 태그 전체를 찾아오는 코드
+	//example08.html파일(문서) 안에 있는 태그 이름들 중 p태그를 전부
+	//찾아온다. 배열로 반환된다.
+	let ptag = document.getElementsByTagName("p");
+	console.log(ptag)
+	
+	//2. 클래스 이름으로 요소를 찾아오는 코드
+	//example08.html파일(문서) 안에 있는 클래스 속성에 들어있는 값 중에
+	//pclass라는 값을 가지고있는 모든 요소를 찾아온다. 배열로 반환된다.
+	let pclass = document.getElementsByClassName("pclass");
+	console.log(pclass)
+	
+	//3. 아이디 이름으로 요소를 찾아오는 코드
+	//example08.html파일(문서) 안에 있는 아이디 속성에 들어있는 값 중에
+	//pid라는 값을 가지고있는 하나의 요소를 찾아온다. 객체로 반환된다.
+	//만약에 html문서에 아이디가 중복되어서 여러개 존재하더라도
+	//같은 아이디를 가지고있는 태그들 중 먼저 만들어진태그(위에있는)
+	//하나만 찾아온다
+	let pid = document.getElementById("pid");
+	console.log(pid)
+	
+	console.log(ptag[0])	//<p id="pid" class="pclass">
+	console.log(pclass[0])	//<p id="pid" class="pclass">
+	console.log(pid)		//<p id="pid" class="pclass">
+	
+	//자바스크립트 코드를 이용해서 html태그의 속성에 접근하는 방법
+	//id, class, name, style
+	//자바스크립트 코드를 이용해 찾아온 html요소의 id속성의 값을 꺼내오는 방법
+	console.log(pid.id)
+	console.log(ptag[0].id)
+	
+	//html요소의 class 속성의 값을 꺼내오는 방법
+	console.log(pid.className)
+	
+	//html요소의 태그이름을 꺼내오는 방법
+	console.log(pid.tagName)
+	
+	//html요소의 name속성의 값을 꺼내오는 방법
+	console.log(pid.getAttribute("name"))
+	
+	//html요소가 가지고있는 문자열 값을 꺼내오는 방법
+	console.log(pid.innerText)
+	
+	//자신의 문자열과, 자식의 문자열을 모두 반환
+	console.log(
+		document.getElementsByTagName("div")[0].innerText
+	)
+	
+	//html요소가 가지고있는 태그 전체를 꺼내오는 방법(html 자체)
+	console.log(pid.innerHTML)
+	
+	//html요소가 가지고있는 style속성의 값을 꺼내오는 방법
+	console.log(pid.style)
+	
+	console.log(pid.style.color)
+	console.log(pid.style.backgroundColor)
+	
+	//html요소가 가지고있는 id속성의 값을 바꾸는 방법
+	pid.id = "test"
+	
+	//html요소가 가지고있는 class속성의 값을 바꾸는 방법
+	pid.className = "test"
+	
+	//html요소가 가지고있는 style 속성의 값을 바꾸는 방법
+	pid.style.color = "white"
+	pid.style.backgroundColor = "black"
+	pid.style.border = "1px solid green"
+	pid.style.borderRadius = "10px"
+	
+</script>
+</html>

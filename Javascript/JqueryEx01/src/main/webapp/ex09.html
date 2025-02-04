@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>속성 변경</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+		<script>
+			$(document).ready(function(){
+				// Jquery에서 객체의 속성이름으로 속성값 가져오기
+				// JQ객체.attr('속성이름')
+				console.log( $('img').attr('src') );
+				console.log( $('img').attr('width') );
+				// 속성의 값 바꾸기
+				// JQ객체.attr('속성이름','바꿀값')
+				$('img').attr('src','dog.jpg');
+				// ※※ 과제 ※※
+				// 이미지에 마우스를 올리면 이미지 폭이 살짝 늘어나고,
+				// 마우스가 나가면 원래 폭으로 되돌아오고
+				// 클릭을 하면 강아지가 고양이로, 고양이는 강아지로 변하게 하세요
+				$('img')
+					.mouseover(function(){
+						$(this).attr('width','210px');
+					})
+					.mouseout(function(){
+						$(this).attr('width','200px');
+					})
+					.click(function(){
+						ChangeImg(this);
+					});
+			});
+			
+			function ChangeImg( obj ){
+				let img_file_name = $(obj).attr('src');
+				if( img_file_name == 'dog.jpg' ) {
+					$(obj).attr('src','cat.jpg');
+				}else if( img_file_name == 'cat.jpg' ) {
+					$(obj).attr('src','dog.jpg');
+				}else{
+					console.log("예외 상황이 발생하였습니다");
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<img src="" width="200px">
+	</body>
+</html>

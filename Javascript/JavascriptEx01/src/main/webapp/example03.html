@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+<script>
+	//제어문
+	//조건문
+	//if, else-if, else
+	//if의 ()파라미터의 값이 true인 경우에만 코드블럭 안의 코드를 실행한다.
+	//else는 if의 조건이 true가 아닐 때 else 코드블럭 안의 코드를 실행한다.
+	if(false){
+		console.log("조건문이 참 입니다!");
+	}else{
+		console.log("조건문이 거짓입니다!");
+	}
+	
+	let age = 10;
+	if(age >= 20){
+		console.log("대학생")
+	}else if(age >= 17){
+		console.log("고등학생")
+	}else if(age >= 14){
+		console.log("중학생")
+	}else{
+		console.log("초등학생")
+	}
+	 var input_data = 2
+	//switch-case
+	switch(input_data){
+		case 4:
+			console.log("4입니다!")
+			break;
+		case 5:
+			console.log("5입니다!")
+			break;
+		case 3 :
+			console.log("3입니다!")
+			break;
+		default :
+			console.log("5, 4, 3은 아닙니다!")
+	}
+	
+	//while문
+	//while문은 파라미터로 논리타입의 값만 받을 수 있다.
+	//while문의 파라미터가 true인 동안 반복해서 코드블럭 안쪽의 코드를 실행한다.
+	//초기값, 조건식, 증감식
+	//while문으로 1 ~ 10까지 출력하는 코드
+	let i = 1;
+	let sum = 0;
+	while(i <= 10){
+		console.log(i)
+		sum += i;
+		i++
+	}
+	console.log(sum)
+	
+	//while문을 이용해서 구구단 출력
+	//중첩반복문
+	
+	//단
+	let x = 2;
+	//1 ~ 9 곱해지는 수
+	let y = 1;
+	
+	//2단, 3단, 4단... 9단
+	while(x <= 9){
+		y = 1;
+		while(y <= 9){
+			console.log(x * y)
+			y++;
+		}
+		x++;
+	}
+	
+	//반복문은 강제로 루프를 멈출 수 있다.
+	//while문을 이용해서 1 ~ 10까지 출력
+	//break를 사용하면 강제로 반복문을 멈출 수 있다.
+	
+	//반복문의 조건을 다시 검사할 수 있게 돌려보내는 키워드 continue
+	//break, continue는 실행되는 순간 아래의 코드는 실행하지 않는다.
+	//1 ~ 10까지 정수 중 짝수만(짝수일 때) 출력하는 코드
+	//1 ~ 10까지 정수 중 홀수일 때에는 출력하지 않게 하는 코드
+	
+	let j = 1;
+	while(true){
+		//j가 홀수 일 때 건너뛰기
+		//j가 2
+		if(j % 2 != 0){
+			j++;
+			continue;
+		}
+		console.log(j);
+		
+		if(j == 10){
+			break;
+		}
+		j++;
+	}
+	
+	do{
+		console.log("hi")
+	}while(false)
+	
+</script>
+</html>

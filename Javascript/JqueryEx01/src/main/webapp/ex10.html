@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>서브 메뉴 보이기</title>
+		<script src="./js/jquery-3.7.1.js"></script>
+		<style>
+			table {
+				width : 500px;
+			}
+			#menuA {
+				background-color : greenyellow;
+			}
+			#menuB {
+				background-color : orangered;
+			}
+			#menuC {
+				background-color : skyblue;
+			}
+			.sub {
+				display : none;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				// 각각의 버튼에 마우스가 올라가면 배경색을 변경함
+				$('.btns')
+					.mouseenter(function(){
+						$(this).css('background-color','pink');
+					})
+					.mouseleave(function(){
+						$(this).css('background-color','white');
+					})
+					.click(function(){
+						// 각각의 버튼이 눌렸을때에, 어느 하위 메뉴를 표시를 해야 할지
+						// 눌린 버튼의 id 속성값을 가져와서 확인합니다
+						console.log($(this).attr('id'));
+						// 눌린 버튼의 id 속성값이
+						// toA이면 -> #menuA의 display 속성을 보이게 변경
+	/*					if( $(this).attr('id') == 'toA') {
+							$('#menuA').css('display','table');
+						}	*/
+						// toB이면 -> #menuB의 display 속성을 변경
+						// toC이면 -> #menuC의 display 속성을 변경
+						
+						// 버튼이 눌리면, 일단 모든 하위 메뉴를 안보이게 변경
+						$('.sub').css('display','none');
+						switch($(this).attr('id')){
+							case 'toA':
+							//	$('#menuA').css('display','table');
+								$('#menuA').toggle();
+								break;
+							case 'toB':
+							//	$('#menuB').css('display','table');
+								$('#menuB').toggle();
+								break;
+							case 'toC':
+							//	$('#menuC').css('display','table');
+								$('#menuC').toggle();
+								break;
+						}
+						// DOM 객체의 display 속성을 보임<->안보임 으로 전환하는 함수
+						// .toggle()
+					});
+				
+//				$('.sub').mouseout(function(){
+				$('.sub').mouseleave(function(){
+					// sub 메뉴를 안보이게 변경합니다
+					$(this).toggle();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- 메인 메뉴 테이블 작성 -->
+		<table border="1">
+			<tr>
+				<td class="btns" id="toA">메뉴 A</td>
+				<td class="btns" id="toB">바로가기</td>
+				<td class="btns" id="toC">메뉴 C</td>
+			</tr>
+		</table>
+		<!-- 서브 메뉴 테이블 3개 -->
+		<table id='menuA' border='1' class='sub'>
+			<tr>
+				<td>메뉴 A - 1</td>
+				<td>메뉴 A - 2</td>
+				<td>메뉴 A - 3</td>
+			</tr>
+		</table>
+		<table id='menuB' border='1' class='sub'>
+			<tr>
+				<td><a href="https://www.naver.com">네이버로 이동</a></td>
+				<td><a href="https://www.google.com">구글로 이동</a></td>
+				<td><a href="https://www.daum.net/">다음으로 이동</a></td>
+			</tr>
+		</table>
+		<table id='menuC' border='1' class='sub'>
+			<tr>
+				<td>메뉴 C - 1</td>
+				<td>메뉴 C - 2</td>
+				<td>메뉴 C - 3</td>
+			</tr>
+		</table>
+		<!-- 컨텐츠 작성 영역 -->
+		<table border="1">
+			<tr>
+				<td>번호</td>
+				<td>제목</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>1번 게시글입니다</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>2번 게시글입니다</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>3번 게시글입니다</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>4번 게시글입니다</td>
+			</tr>
+		</table>
+	</body>
+</html>

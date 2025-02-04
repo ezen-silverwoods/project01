@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+</body>
+<script>
+	//자바스크립트를 사용하기 위해서는 html 파일이 필요하고
+	//html 파일 안에 <script> 태그를 작성하고 태그 안에 자바스크립트를 사용할 수 있다.
+	
+	//자바에서 프린트와 비슷한 역할
+	console.log("hello, World!");
+	
+	//자바스크립트에서 변수
+	var a = 5;
+	console.log(a);
+	
+	a = "abcde";
+	console.log(a);
+	
+	//자바스크립트에서 변수의 선언
+	var b;
+	
+	//자바스크립트는 변수에 값이 할당되지 않아도 사용할 수 있다.
+	//값이 할당되지 않은 변수는 undefined값을 가지게 된다.
+	console.log(b)
+	
+	//자바스크립트에서 변수에 값 할당
+	b = 1.5;
+	console.log(b)
+	
+	//자바스크립트도 타입이 존재한다. 하지만 변수를 선언할 때 타입을 명시하지 않는다.
+	//대신 변수 자체의 종류가 존재한다.
+	//var
+	//자바스크립트 코드가 실행될 때 모든 var 변수는 가장 첫번째 줄로 이동하여
+	//변수를 강제로 선언해버린다.(호이스팅) 사용하면 안된다.
+	//c 변수 선언 전에 c 변수를 읽는다.
+	console.log(c)
+	
+	//c변수는 자바스크립트 코드 상단으로 이동해 선언되어버린다.
+	var c = 150;
+	
+	//let
+	//자바에서 사용하는 변수와 동일하게 동작한다.
+	//변수의 선언 이전에 값을 읽는 행위가 불가능하다.
+	let d = 350;
+	console.log(d)
+	
+	//const
+	//상수를 의미한다. 변수의 선언만은 불가능하고, 선언과 동시에 값을 할당해야한다.
+	//변수에 재할당은 불가능하다.
+	const e = "hello";
+	console.log(e);
+	//e = "bye";
+	
+	//자바스크립트에서 데이터의 타입
+	//기본형타입과, 객체타입이 존재한다.
+	//기본형 타입
+	//숫자, 문자, 논리, null, undefined
+	
+	//객체타입
+	//배열, 함수, object
+	
+	//연산자
+	//사칙연산
+	//+, -, *, /, %
+	console.log(1 + 1);
+	console.log(1 - 1);
+	console.log(2 * 2);
+	console.log(4 / 2);
+	console.log(4 % 2);
+	
+	//문자열의 덧셈 연산
+	console.log("a" + "b");
+	console.log("a" + 5);
+	
+	console.log("13" - 1);
+	
+	//++ --
+	//증감연산자
+	//증감연산자가 변수 오른쪽에 붙으면 연산은 해당줄의 코드가 전부 실행된 후에 마지막으로
+	//실행한다.
+	//증감연산자가 변수 왼쪽에 붙으면 연산을 먼저 실행하고 해당 줄의 코드를 실행한다.
+	let f = 5;
+	console.log(--f);
+	console.log(f++);
+	
+	//== < <=
+	//비교연산자
+	console.log(1 < 2);		//true
+	console.log(1 <= 1);	//true
+	console.log(1 > 2);		//false
+	console.log(1 >= 2);	//false
+	console.log(1 == 1);	//true
+	console.log(1 != 1);	//false
+	
+	//타입과, 객체의 메모리 주소도 동일한지 비교
+	console.log(1 === 1);	//true
+	console.log(1 !== 2);	//true
+	
+	console.log(1 == "1");	//true
+	console.log(1 === "1");	//false
+	
+</script>
+</html>
